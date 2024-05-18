@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package excelreader;
+
+option go_package = "github.com/vinodyadavjella/excelreader";
+
+service ExcelReader {
+    rpc UploadExcelFile (ExcelFile) returns (ProcessResponse);
+}
+
+message ExcelFile {
+    bytes content = 1;
+}
+
+message ProcessResponse {
+    string message = 1;
+    repeated string json_data = 2;
+}
